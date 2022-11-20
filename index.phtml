@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1> Ma To Do List ;)</h1>
+    <?php if (!empty($taskes)) : ?>
+        <fieldset>
+            <legend>List Tâche</legend>
+            <form action="index.php" method="post">
+                <?php for ($i = 0; $i < count($taskes); $i++) : ?>
+
+                    <input type="checkbox" name="indexes[]" value="<?= $i ?>">
+                    <label style="display: inline;" class="label"><?= $taskes[$i][0] ?>
+
+                        <?php if ($taskes[$i][2] < date("Y-m-d")) : ?>
+                            <p style="display: inline;"> <strong style="color:#A7001E; margin-left:2%;">EN RETARD</strong></p>
+                        <?php endif ?><br>
+                        <p class="descrep"><?= $taskes[$i][1] ?></p>
+                    </label><br>
+
+                <?php endfor ?><br>
+                <input type="submit" style="background-color:#A7001E; padding:1% 2%; border-radius:0.5em ; color: #f3fafb;" value="Suprimer" />
+
+            </form>
+        </fieldset>
+        <hr>
+    <?php endif ?>
+
+    <form method="POST" action="index.php">
+        <fieldset>
+            <legend>Nouvelle Tâche</legend>
+            <h3>Informations sur la tâche</h3> <label>Titre :</label>
+            <input id="title" name="title" type="text">
+            <br>
+            <div>
+                <label>Tâche :</label>
+                <textarea name="descreption" id="" cols="30" rows="2"></textarea>
+            </div>
+            <br>
+            <label>Date de fin :</label>
+            <select id="day" name="day">
+                <?php for ($day = 1; $day <= 31; $day++) : ?>
+                    <option value="<?= $day ?>"><?= $day ?></option>
+                <?php endfor ?>
+            </select>
+            <select name="month">
+                <option value="1">Janvier</option>
+                <option value="2">Février</option>
+                <option value="3">Mars</option>
+                <option value="4">Avril</option>
+                <option value="5">Mai</option>
+                <option value="6">Juin</option>
+                <option value="7">Juillet</option>
+                <option value="8">Août</option>
+                <option value="9">Septembre</option>
+                <option value="10">Octobre</option>
+                <option value="11">Novembre</option>
+                <option value="12">Décembre</option>
+                <!-- <div>
+             <?php for ($i = 0; $i < count($mois); $i++) : ?>
+                <option value="<?= $mois[$i] ?>"><?= $mois[$i] ?></option>
+            <?php endfor ?>
+            </div>  -->
+            </select>
+            <select name="year">
+                <?php for ($year = date('2020'); $year < date('Y') + 8; $year++) : ?>
+                    <option value="<?= $year ?>"><?= $year ?></option>
+                <?php endfor ?>
+            </select>
+
+            <br>
+
+            <label class="priorite">Priorité :</label>
+            <input id="priority-low" name="priority" selected="selected" type="radio" id ="low" value="priority-low">
+            <label>Basse</label>
+            <input id="priority-normal" name="priority" type="radio" id ="normal" value="priority-normal">
+            <label>Normale</label>
+            <input id="priority-high" name="priority" type="radio" id ="high" value="priority-high">
+            <label>Haute</label>
+            <br>
+            <button class="btn" name="enregistrer" style=" padding:1% 2%; border-radius:0.5em ;">Enregistrer</button>
+    </form>
+    </fieldset>
+
+</body>
+
+</html>

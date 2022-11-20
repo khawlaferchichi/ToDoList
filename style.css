@@ -1,0 +1,60 @@
+body{
+   width: 80%;
+    margin:  auto;
+    background-color:#f3fafb ;
+    margin: 2% auto;
+    padding: 1em;
+    width: 75%;
+
+    /* presentation */
+    background-color: #d4e4ee;
+   border-radius: 10px;
+    box-shadow: 0 0 6px 2px #adc7d6;
+    color: #122430;
+
+}
+
+
+h1{
+    text-align: center;
+     color:#47091c;
+   
+}
+ input{
+   margin: 1%;
+ }
+ div{
+    margin-bottom: 2%;
+ }
+ hr{
+   margin: 3% 0;
+ }
+ .descrep{
+  display: none;
+  width: 50%;
+   border-radius: 1em;
+   padding: 2%;
+   background-color: #8fbfcc;
+	box-shadow: 0 0 8px #528391;
+ }
+ .label:hover > .descrep{
+   display: block;
+  
+  
+   
+ }
+ .priorite #high
+ {
+  border: 1px solid #000;
+   color: red;
+ }
+ 
+ .priorite low
+ {
+   color: green;
+ }
+ 
+ .priorite normal
+ {
+   color: black;
+ }
